@@ -1,0 +1,107 @@
+.img_logo {
+  flex-grow: 1;
+}
+
+.img_logo img{
+  width: 20%;
+}
+
+.design_cart {
+  padding-top: 3em;
+  display: flex;
+  gap: 2em;
+  width: 100%;
+
+}
+.text_card {
+  text-align: center;
+}
+.design_img {
+  width: 10em;
+}
+
+.btn_container {
+  display: flex;
+  gap: 2em;
+  padding: 1em;
+}
+.btn_order {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn_delete {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select_input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.input_quanty {
+    outline: none;
+    border: 1px solid green;
+    text-align: center;
+  }
+.select_size {
+  outline: none;
+  border: 1px solid green;
+  text-align: center;
+  width: 100%;
+}
+.close {
+    display: none;
+}
+@media (max-width: 768px) {
+  .img_logo img{
+    width: 60%;
+  }
+  .design_cart {
+    display: flex;
+    justify-content: center;
+    margin-left: 2em;
+  }
+
+  .btn_container {
+    display: flex;
+    justify-content: center;
+
+  }
+  .input_quanty {
+    outline: none;
+    border: 1px solid green;
+    text-align: center;
+    width: 80%;
+
+  }
+  .select_size {
+    outline: none;
+    border: 1px solid green;
+    text-align: center;
+    width: 80%;
+  }
+  .btn_delete {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn_container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .close {
+    text-align: end;
+    display: grid;
+    margin-right: 1em;
+  }
+}

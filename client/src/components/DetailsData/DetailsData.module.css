@@ -1,0 +1,47 @@
+
+.details_container {
+    margin-top: 10em;
+
+}
+.details_box {
+   display: flex;
+   justify-content: center;
+   gap: 2em;
+}
+.title {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 2em;
+
+}
+.ul_li ul{
+    margin-bottom: 2em;
+
+}
+
+.tools {
+    background-color: blueviolet;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+@media (max-width: 768px) {
+    .details_box {
+        display: grid;
+        
+     }
+     .ul_li ul{
+       width: 100%;
+    
+    }
+
+    .tools {
+        width: 100%;
+   font-size: 15px;
+   text-align: center;
+        margin-bottom: 5em;
+    
+    }
+}

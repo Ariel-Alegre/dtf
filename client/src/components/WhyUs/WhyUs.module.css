@@ -1,0 +1,52 @@
+.container_whyus {
+    display: grid;
+    margin-bottom: 10em;
+
+}
+.datas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5em;
+ text-align: center;
+    
+}
+.sub_data {
+    text-align: center;
+    width: 20%;
+}
+.why {
+ text-align: center;
+ font-weight: 800;
+ font-size: 50px;
+ margin-bottom: 1em;
+
+}
+
+.why_sub {
+    font-weight: 600;
+    font-size: 20px;
+   }
+
+.icons {
+    font-size: 100px;
+    margin: auto;
+}
+
+
+@media (max-width: 768px) {
+
+    .sub_data {
+        width: 100%;
+    }
+    .why {
+        text-align: center;
+        font-weight: 800;
+        font-size: 30px;
+        margin-bottom: 1em;
+       
+       }
+
+    
+ 
+}

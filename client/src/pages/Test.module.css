@@ -1,0 +1,20 @@
+.canvas_container {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.canvas_box {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.option_canvas {
+    margin-top: 2em;
+    padding: 15px;
+}

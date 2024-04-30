@@ -1,0 +1,19 @@
+.DtfFast_container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(188, 188, 188);
+    text-align: center;
+    margin-bottom: 8em;
+    gap: 15em;
+    padding: 2em;
+    margin: auto;
+}
+
+.info {
+    color: rgb(120, 0, 233);
+    font-size: 60px;
+}
+
+.img_dtf {
+    width: 80%;
+}
