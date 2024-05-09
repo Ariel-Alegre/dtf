@@ -19,14 +19,14 @@ export default function Category() {
             <div className="group relative">
               <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
               <img
-                  src="https://www.dtfrapido.com/wp-content/uploads/2024/01/DTFRAPIDO-FOTOS-02-scaled.jpg"
+                  src={require("../../images/dtf_x_metro.jpg")}
                   alt="not found"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
 
               <p className="text-xl font-semibold text-gray-900 text-center mb-4">
-              DTF TEXTIL
+              DTF TEXTIL X METROS
 
               </p>
 
@@ -43,14 +43,14 @@ export default function Category() {
               <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
               
                     <img
-                  src="https://www.dtfrapido.com/wp-content/uploads/2024/01/DTFRAPIDO-FOTOS_Mesa-de-trabajo-1-scaled.jpg"
+                  src={require("../../images/your_design.jpg")}
                   alt="not found"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
 
               <p className="text-xl font-semibold text-gray-900 text-center mb-4">
-                CREA TU PROPIO PRODUCTO
+                CREA TU PROPIO CAMISETA
 
               </p>
 

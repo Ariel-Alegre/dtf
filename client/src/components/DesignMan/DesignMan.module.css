@@ -6,7 +6,8 @@
   display: flex;
   width: 100% !important;
   justify-content: center;
-  margin-top: -14em;
+  margin-top: -20em;
+
 }
 .canvas_img {
   object-fit: cover;
@@ -17,9 +18,10 @@
   padding: 2em;
   width: 300px;
   box-shadow: 0px 2px 2px #b5b5b5;
-  margin-top: 3em;
 }
 .select {
+  outline: none;
+  border: 1px solid black;
   width: 80px;
 }
 .btn_option {
@@ -80,6 +82,12 @@
 .color_mobile {
   display: none;
 }
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+
+
+}
+
 @media (max-width: 768px) {
   .container_all_btn {
     display: none !important;

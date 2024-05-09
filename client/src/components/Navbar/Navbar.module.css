@@ -1,7 +1,10 @@
 .img_logo {
   flex-grow: 1;
 }
-
+.option {
+  display: flex;
+  width: 150%;
+}
 .img_logo img{
   width: 20%;
 }

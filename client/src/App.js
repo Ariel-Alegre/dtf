@@ -1,6 +1,8 @@
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Test from "./pages/Test";
+import Test2 from "./pages/Test2";
+
 import Details from "./pages/Details";
 import Impression from "./pages/Impression";
 import DesignMan from "./pages/DesignMan";
@@ -22,6 +24,7 @@ import DesignCaqui from "./pages/DesignCaqui";
 import DesignTerracota from "./pages/DesignTerracota";
 import DesignGreenHard from "./pages/DesignGreenHard";
 import Contact from "./pages/Contact";
+import Tarifas from "./pages/Tarifas";
 
 function App() {
   return (
@@ -30,9 +33,12 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/dtf" element={<Details />} />
         <Route exact path="/contactanos" element={<Contact />} />
+        <Route exact path="/tarifas" element={<Tarifas />} />
 
 
         <Route exact path="/test" element={<Test />} />
+        <Route exact path="/test2" element={<Test2/>} />
+
         <Route exact path="/impression" element={<Impression />} />
         <Route exact path="/herramienta-de-diseño" element={<DesignMan />} />
         <Route exact path="/herramienta-de-diseño/gris" element={<DesignGray />} />

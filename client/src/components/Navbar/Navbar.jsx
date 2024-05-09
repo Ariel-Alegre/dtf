@@ -46,7 +46,7 @@ export default function Navbar() {
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const [designs, setDesigns] = React.useState([]);
   const [sizes, setSizes] = React.useState({});
-
+console.log(designs)
   const handleSizeChange = (index, newSize) => {
     const updatedSizes = { ...sizes };
     updatedSizes[index] = newSize;
@@ -63,11 +63,12 @@ export default function Navbar() {
   });
 
   React.useEffect(() => {
-    const storedDesign = localStorage.getItem("cartDesign");
+    const storedDesign = localStorage.getItem("cartDesigns");
     if (storedDesign) {
       const parsedDesign = JSON.parse(storedDesign);
       setDesigns(parsedDesign);
     }
+
   }, []);
 
   React.useEffect(() => {
@@ -125,18 +126,53 @@ export default function Navbar() {
       padding: "0 4px",
     },
   }));
-  const handleSendByWhatsApp = async (design, cantidad, size) => {
+  const handleSendByWhatsApp = async (imageUrlfront, imageUrlback, cantidad, size) => {
     try {
-      // Calculate the total price
-      const totalPrice = (parseFloat(cantidad) * 18.9 || 18.9).toFixed(2);
+    
+    if (imageUrlfront && imageUrlback === "") {
+      
+    const totalPrice = (parseFloat(cantidad) * 18.9 || 18.9).toFixed(2);
+    
+    const message = `
+Pedido: ${imageUrlfront}. 
+Cantidad: ${cantidad}.
+Talla: ${size}.
+Precio total: ${totalPrice}€.`;
+    const url = `https://api.whatsapp.com/send?phone=+34670862817&text=${encodeURIComponent(
+      message
+    )}`;
+    console.log("URL:", url);
+    window.open(url, "_blank");
+  } else if (imageUrlback && imageUrlfront === "") {
+    const totalPrice = (parseFloat(cantidad) * 18.9 || 18.9).toFixed(2);
+    
+    const message = `
+Pedido: ${imageUrlback}. 
+Cantidad: ${cantidad}.
+Talla: ${size}.
+Precio total: ${totalPrice}€.`;;
+const url = `https://api.whatsapp.com/send?phone=+34670862817&text=${encodeURIComponent(
+  message
+)}`;
+    console.log("URL:", url);
+    window.open(url, "_blank");
+  } else  if (imageUrlfront && imageUrlback ) 
+ {
+    const totalPrice = (parseFloat(cantidad * 2) * 18.9 || 18.9).toFixed(2);
+    
+    const message = `
+Pedido:${imageUrlfront} + ${imageUrlback} . 
+Cantidad: ${cantidad}.
+Talla: ${size}.
+Precio total: ${totalPrice}€.`;;
+const url = `https://api.whatsapp.com/send?phone=+34670862817&text=${encodeURIComponent(
+  message
+)}`;
+    console.log("URL:", url);
+    window.open(url, "_blank");
+  }
 
-      // Use the WhatsApp API to send a message with the link to the image
-      const message = `Quiero ${cantidad} de este diseño ${design} en talla ${size}. El precio total es ${totalPrice}€`;
-      const url = `https://api.whatsapp.com/send?phone=+34670862817&text=${encodeURIComponent(
-        message
-      )}`;
-      console.log("URL:", url);
-      window.open(url, "_blank");
+      
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -144,7 +180,7 @@ export default function Navbar() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 450 }}
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 600 }}
       role="presentation"
     >
       <List sx={{ height: 100 }}>
@@ -171,13 +207,26 @@ export default function Navbar() {
             {designs.map((design, index) => (
               <>
                 <div key={index} className={styles.design_cart}>
-                  <div>
+                  {design.imageUrlfront ?(
+
+                    <div>
                     <img
-                      src={design.imageUrl}
+                      src={design.imageUrlfront}
                       alt="Diseño en el carrito"
                       className={styles.design_img}
-                    />
+                      />
                   </div>
+                    ): null}
+                    {design.imageUrlback ? (
+
+                      <div>
+                    <img
+                      src={design.imageUrlback}
+                      alt="Diseño en el carrito"
+                      className={styles.design_img}
+                      />
+                  </div>
+                    ): null}
                   <div className={styles.select_input}>
                     <label htmlFor="">Cantidad:</label>{" "}
                     <div>
@@ -215,7 +264,9 @@ export default function Navbar() {
                     </div>
                     <div>
                       Precio total:{" "}
-                      {(parseFloat(design.quanty) * 18.9 || 18.9).toFixed(2)}€
+                   
+                        {design.imageUrlfront && design.imageUrlback ? (parseFloat(design.quanty) * 18.9 * 2 || 18.9 * 2).toFixed(2) : (parseFloat(design.quanty) * 18.9 || 18.9).toFixed(2)}€
+                      
                     </div>
                   </div>
                 </div>
@@ -227,8 +278,10 @@ export default function Navbar() {
                       key={index}
                       onClick={() =>
                         handleSendByWhatsApp(
-                          design.imageUrl,
+                          design.imageUrlfront,
+                          design.imageUrlback,
                           design.quanty || 1,
+                         
                           sizes[index] || "S"
                         )
                       }
@@ -321,37 +374,44 @@ export default function Navbar() {
               </React.Fragment>
             </div>
           </Hidden>
-          <Hidden smDown>
-            <Link to="/">
-              <Button color="inherit">Inicio</Button>
+
+          <Hidden smDown >
+            <div className={styles.option}>
+
+          <Link to="/"  >
+              <Button color="inherit" >Inicio</Button>
             </Link>
-            <Link to="/impression" target="_blanck">
-              <Button color="inherit">Dtf textil</Button>
+            <Link to="/tarifas"  >
+              <Button color="inherit" >tarifas</Button>
             </Link>
-            <Link to="/herramienta-de-diseño">
-              <Button color="inherit">Crea tu propio producto</Button>
+            <Link to="/impression" target="_blanck" >
+              <Button color="inherit" >Dtf textil</Button>
+            </Link>
+            <Link to="/herramienta-de-diseño" >
+              <Button color="inherit" >Crea tu propio producto</Button>
             </Link>
 
-            <Link to="/contactanos">
-              <Button color="inherit">Contacto</Button>
+            <Link to="/contactanos" >
+              <Button color="inherit" >Contacto</Button>
             </Link>
 
-            <IconButton onClick={toggleDrawerCarrito("right", true)}>
+            <IconButton  onClick={toggleDrawerCarrito("right", true)}>
               <StyledBadge color="secondary">
                 <ShoppingCartIcon sx={{ color: "#fff" }} />
               </StyledBadge>
             </IconButton>
-            <div>
+
               <React.Fragment key={"right"}>
                 <Drawer
                   anchor={"right"}
                   open={state["right"]}
                   onClose={toggleDrawerCarrito("right", false)}
-                >
+                  >
                   {list("right")}
                 </Drawer>
               </React.Fragment>
             </div>
+
           </Hidden>
         </Toolbar>
       </AppBar>

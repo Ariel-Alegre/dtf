@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 export default function BgViewPrice() {
     return (
         <div className={styles.bg_view_price}>
-            <div  className={styles.centered}>
+      {/*       <div  className={styles.centered}>
 
             <div>
                 <h1 className={styles.title}>PLANCHAMOS TU DTF</h1>
@@ -18,7 +18,7 @@ export default function BgViewPrice() {
                 <Button variant="contained" className={styles.btn}>DTF TEXTIL</Button>
                 </Link>
             </div>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -1,11 +1,11 @@
 .bg_view_price {
     position: relative;
-    background-image: url('https://dtfbarcelona.es/wp-content/uploads/2023/10/Efecto-terminado-DTF-Tramado-por-metros-barcelona-1024x1024.png');
+    background-image: url('../../images/img_home.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 50vh;
+    height: 80vh;
     margin-top: 5em;
 
 }
@@ -49,7 +49,9 @@
     background-color: black !important;
 }
 @media (max-width: 768px) {
-
+.bg_view_price {
+    display: none;
+}
     .title {
         font-size: 30px;
     

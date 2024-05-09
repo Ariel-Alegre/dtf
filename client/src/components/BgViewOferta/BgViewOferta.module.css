@@ -1,6 +1,6 @@
 .bg_view_price {
     position: relative;
-    background-image: url('https://www.dtfrapido.com/wp-content/uploads/2024/01/DTFRAPIDO-FOTOS_Mesa-de-trabajo-1-scaled.jpg');
+    background-image: url('../../images/dtf_x_metro.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     height: 100%; /* Ocupa toda la altura del padre (bg_view_price) */
-    background-color: rgba(0, 0, 0, 0.32);
+    background-color: rgba(0, 0, 0, 0.574);
     width: 100%;
 }
 

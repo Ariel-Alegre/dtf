@@ -11,7 +11,8 @@ import { message } from "antd";
 import axios from "axios";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 export default function Impression() {
   const [selectLength, setSetLength] = useState(false);
   const [imageDimensions, setImageDimensions] = useState({
@@ -21,6 +22,7 @@ export default function Impression() {
   const [copias, setCopias] = useState(0);
   const [canvases, setCanvases] = useState([]);
   const [totalImages, setTotalImages] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const [uploadedImage, setUploadedImage] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -38,12 +40,13 @@ export default function Impression() {
   };
 
   const handleFileUpload = async (files) => {
+    setOpen(true);
     const formData = new FormData();
     formData.append("image", files[0]);
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/upload",
+        "https://dtf-production.up.railway.app/field",
         formData
       );
       const url = response.data.url;
@@ -51,11 +54,16 @@ export default function Impression() {
       setImageUrl(url);
       setImageName(name);
       setUploadedImage(true);
+
       console.log("File uploaded successfully:", url);
       // Obtener las dimensiones de la imagen cargada
       getImageDimensions(url);
+    setOpen(false);
+
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+
     }
   };
 
@@ -155,6 +163,13 @@ export default function Impression() {
 
   return (
     <>
+        <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+        Subiendo...
+      </Backdrop>
       <div className={styles.impression_container}>
         <div className={styles.box_datas}>
           <div className={styles.logo_container}>

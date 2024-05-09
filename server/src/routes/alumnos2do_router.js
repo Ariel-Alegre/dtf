@@ -6,9 +6,9 @@ const cloudinary = require("cloudinary").v2;
 const upload = multer({ dest: "uploads/" });
 
 cloudinary.config({
-  cloud_name: "dz0lruj7k",
-  api_key: "128323134832632",
-  api_secret: "04JixT8UcmHYY-QfbwSTBzT-L7I",
+  cloud_name: "dglwoq2n6",
+  api_key: "661334415761171",
+  api_secret: "5d4RENl7Ab3LgHZPXdYVnjrtfdA",
 });
 
 router.post("/upload", upload.array("image", 2), async (req, res) => {
